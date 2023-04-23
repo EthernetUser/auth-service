@@ -19,7 +19,7 @@ func Info(args ...any) {
 }
 
 func Infof(format string, v ...any) {
-	logger.WithTime(time.Now()).Infof(format, v...)
+	logger.Infof(format, v...)
 }
 
 func Fatal(v ...any) {

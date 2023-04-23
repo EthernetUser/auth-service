@@ -11,7 +11,6 @@ var config AppConfig
 
 type AppConfig struct {
 	PORT string `config:"PORT"`
-	TEST string `config:"test"`
 }
 
 func GetAppConfig() *AppConfig {
