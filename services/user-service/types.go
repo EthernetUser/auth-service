@@ -16,8 +16,7 @@ type IUserService interface {
 	DeleteMany(ids []uint) string
 }
 
-type UserService struct {
-}
+type UserService struct{}
 
 type IUserSearchRequest struct {
 	Ids      []string

@@ -1,14 +1,16 @@
 package services
 
 import (
-	"auth-service/logger"
 	"fmt"
 	"reflect"
+
+	"auth-service/logger"
 )
 
 func (request *IUserSearchRequest) IsEmptyRequest() bool {
 	return len(request.Ids) < 1 && (reflect.ValueOf(request.PageSize).IsZero())
 }
+
 func (userService UserService) Search(payload IUserSearchRequest) IUserSearchResponse {
 	logger.Infof("Got payload %v on userService.Search", payload)
 
@@ -31,16 +33,13 @@ func (userService UserService) Search(payload IUserSearchRequest) IUserSearchRes
 }
 
 func (userService UserService) CreateMany(payload interface{}) string {
-
 	return ""
 }
 
 func (userService UserService) UpdateMany(payload interface{}) string {
-
 	return ""
 }
 
 func (userService UserService) DeleteMany(ids []uint) string {
-
 	return ""
 }

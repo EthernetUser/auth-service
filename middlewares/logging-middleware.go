@@ -1,8 +1,9 @@
 package middlewares
 
 import (
-	"auth-service/logger"
 	"net/http"
+
+	"auth-service/logger"
 )
 
 func LoggingMiddleware(next http.Handler) http.Handler {

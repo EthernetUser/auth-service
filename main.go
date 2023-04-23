@@ -1,13 +1,15 @@
 package main
 
 import (
+	"fmt"
+	"net/http"
+
 	. "auth-service/configs"
 	"auth-service/logger"
 	"auth-service/middlewares"
 	. "auth-service/router"
-	"fmt"
+
 	"github.com/gorilla/mux"
-	"net/http"
 )
 
 func main() {

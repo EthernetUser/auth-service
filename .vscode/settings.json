@@ -1,0 +1,14 @@
+{
+    "[go]": {
+        "editor.defaultFormatter": "golang.go",
+        "files.insertFinalNewline": true,
+        "editor.insertSpaces": true,
+        "editor.autoIndent": "advanced"
+    },
+    "go.lintTool": "golangci-lint",
+    "go.lintOnSave": "workspace",
+    "gopls": {
+        "ui.semanticTokens": true,
+        "formatting.gofumpt": true
+    }
+}
