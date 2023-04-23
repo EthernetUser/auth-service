@@ -6,46 +6,20 @@ import (
 	"reflect"
 )
 
-type UserService struct {
-}
-
-type ISearchRequest struct {
-	Ids      []string
-	PageSize int
-	Offset   int
-}
-
-func (request *ISearchRequest) IsEmptyRequest() bool {
+func (request *IUserSearchRequest) IsEmptyRequest() bool {
 	return len(request.Ids) < 1 && (reflect.ValueOf(request.PageSize).IsZero())
 }
-
-type IUser struct {
-	Id    string
-	Email string
-}
-
-type ISearchResponse struct {
-	Items []IUser
-}
-
-type IUserService interface {
-	Search(payload ISearchRequest) ISearchResponse
-	CreateMany(payload interface{}) string
-	UpdateMany(payload interface{}) string
-	DeleteMany(ids []uint) string
-}
-
-func (userService UserService) Search(payload ISearchRequest) ISearchResponse {
+func (userService UserService) Search(payload IUserSearchRequest) IUserSearchResponse {
 	logger.Infof("Got payload %v on userService.Search", payload)
 
 	if payload.IsEmptyRequest() {
 		logger.Info("Empty requests")
-		return ISearchResponse{
+		return IUserSearchResponse{
 			Items: []IUser{},
 		}
 	}
 
-	result := ISearchResponse{
+	result := IUserSearchResponse{
 		Items: []IUser{},
 	}
 

@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"auth-service/logger"
-	. "auth-service/services"
+	. "auth-service/services/user-service"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -30,7 +30,7 @@ func parseJson[T any](w http.ResponseWriter, body io.ReadCloser, conteiner *T) e
 }
 
 func (userController *UserController) Search(w http.ResponseWriter, r *http.Request) {
-	var payload ISearchRequest
+	var payload IUserSearchRequest
 
 	err := parseJson(w, r.Body, &payload)
 	if err != nil {
@@ -42,7 +42,7 @@ func (userController *UserController) Search(w http.ResponseWriter, r *http.Requ
 }
 
 func (u *UserController) Create(w http.ResponseWriter, r *http.Request) {
-	var payload ISearchRequest
+	var payload IUserSearchRequest
 
 	err := parseJson(w, r.Body, &payload)
 	if err != nil {
@@ -52,7 +52,7 @@ func (u *UserController) Create(w http.ResponseWriter, r *http.Request) {
 }
 
 func (u *UserController) Update(w http.ResponseWriter, r *http.Request) {
-	var payload ISearchRequest
+	var payload IUserSearchRequest
 
 	err := parseJson(w, r.Body, &payload)
 	if err != nil {
@@ -62,7 +62,7 @@ func (u *UserController) Update(w http.ResponseWriter, r *http.Request) {
 }
 
 func (u UserController) Delete(w http.ResponseWriter, r *http.Request) {
-	var payload ISearchRequest
+	var payload IUserSearchRequest
 
 	err := parseJson(w, r.Body, &payload)
 	if err != nil {
