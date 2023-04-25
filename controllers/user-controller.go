@@ -48,29 +48,35 @@ func (userController *UserController) Search(w http.ResponseWriter, r *http.Requ
 	writeJson(w, response)
 }
 
-func (u *UserController) Create(w http.ResponseWriter, r *http.Request) {
-	var payload IUserSearchRequest
+func (userController *UserController) Create(w http.ResponseWriter, r *http.Request) {
+	var payload IUserCreateRequest
 
 	err := parseJson(w, r.Body, &payload)
 	if err != nil {
 		return
 	}
+	response := userController.userService.CreateMany(payload)
+	writeJson(w, response)
 }
 
-func (u *UserController) Update(w http.ResponseWriter, r *http.Request) {
-	var payload IUserSearchRequest
+func (userController *UserController) Update(w http.ResponseWriter, r *http.Request) {
+	var payload IUserUpdateRequest
 
 	err := parseJson(w, r.Body, &payload)
 	if err != nil {
 		return
 	}
+	response := userController.userService.UpdateMany(payload)
+	writeJson(w, response)
 }
 
-func (u UserController) Delete(w http.ResponseWriter, r *http.Request) {
-	var payload IUserSearchRequest
+func (userController *UserController) Delete(w http.ResponseWriter, r *http.Request) {
+	var payload IUserDeleteRequest
 
 	err := parseJson(w, r.Body, &payload)
 	if err != nil {
 		return
 	}
+	response := userController.userService.DeleteMany(payload)
+	writeJson(w, response)
 }

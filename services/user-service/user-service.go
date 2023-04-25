@@ -32,14 +32,20 @@ func (userService UserService) Search(payload IUserSearchRequest) IUserSearchRes
 	return result
 }
 
-func (userService UserService) CreateMany(payload interface{}) string {
-	return ""
+func (userService UserService) CreateMany(payload IUserCreateRequest) IUserCreateResponse {
+	return IUserCreateResponse{
+		CreatedUsers: []IUser{},
+	}
 }
 
-func (userService UserService) UpdateMany(payload interface{}) string {
-	return ""
+func (userService UserService) UpdateMany(payload IUserUpdateRequest) IUserUpdatedResponse {
+	return IUserUpdatedResponse{
+		UpdatedUsers: []IUser{},
+	}
 }
 
-func (userService UserService) DeleteMany(ids []uint) string {
-	return ""
+func (userService UserService) DeleteMany(ids IUserDeleteRequest) IUserDeleteResponse {
+	return IUserDeleteResponse{
+		DeletedUserIds: []string{},
+	}
 }
